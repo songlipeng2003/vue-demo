@@ -1,18 +1,15 @@
 <template>
-  <div id="app">
-
+  <div>
+    <router-view></router-view>
     <tabbar>
-      <tabbar-item>
+      <tabbar-item v-link="home">
         <span slot="label">首页</span>
       </tabbar-item>
       <tabbar-item>
         <span slot="label">论坛</span>
       </tabbar-item>
       <tabbar-item>
-        <span slot="label">首页</span>
-      </tabbar-item>
-      <tabbar-item>
-        <span slot="label">首页</span>
+        <span slot="label">个人</span>
       </tabbar-item>
     </tabbar>
   </div>
@@ -20,16 +17,14 @@
 
 <script>
 import {Tabbar, TabbarItem} from 'vux-components/tabbar'
+import {Style} from 'vux-components'
 
 export default {
   components: {
-    Tabbar, TabbarItem
+    Style, Tabbar, TabbarItem
   }
 }
 </script>
 
 <style>
-p {
-  font-size: 20px;
-}
 </style>

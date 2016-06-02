@@ -2,13 +2,25 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import {Style} from 'vux-components'
+import Home from './components/Home'
 
-/* eslint-disable no-new */
-new Vue({
-  el: 'body',
-  components: { App, Style }
+Vue.use(VueResource)
+Vue.use(VueRouter)
+
+Vue.http.options.root = 'https://ruby-china.org/api/v3'
+
+var router = new VueRouter({
+  history: true
 })
 
-Vue.use(VueRouter)
-Vue.use(VueResource)
+router.map({
+  'home': {
+    component: Home
+  }
+})
+
+router.redirect({
+  '*': 'home'
+})
+
+router.start(App, '#app')
