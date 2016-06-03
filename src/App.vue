@@ -2,13 +2,13 @@
   <div>
     <router-view></router-view>
     <tabbar>
-      <tabbar-item v-link="home">
+      <tabbar-item @click="goHome()">
         <span slot="label">首页</span>
       </tabbar-item>
-      <tabbar-item>
+      <tabbar-item @click="goNodes()">
         <span slot="label">论坛</span>
       </tabbar-item>
-      <tabbar-item>
+      <tabbar-item @click="goAccount()">
         <span slot="label">个人</span>
       </tabbar-item>
     </tabbar>
@@ -22,6 +22,17 @@ import {Style} from 'vux-components'
 export default {
   components: {
     Style, Tabbar, TabbarItem
+  },
+  methods: {
+    goHome () {
+      this.$router.go('home')
+    },
+    goNodes () {
+      this.$router.go('nodes')
+    },
+    goAccount () {
+
+    }
   }
 }
 </script>
