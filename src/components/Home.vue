@@ -28,7 +28,8 @@ export default {
           list.push({
             src: e.user.avatar_url,
             title: e.title,
-            desc: e.node_name + '•' + e.user.name + '•'
+            desc: e.node_name + '•' + e.user.name + '•',
+            url: {name: 'topic', params: {id: e.id}}
           })
         })
 

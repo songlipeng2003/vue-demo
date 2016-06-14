@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 import Home from './components/Home'
 import Nodes from './components/Nodes'
 import Node from './components/Node'
+import Topic from './components/Topic'
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
@@ -27,6 +28,10 @@ router.map({
   '/node/:id': {
     name: 'node',
     component: Node
+  },
+  '/topic/:id': {
+    name: 'topic',
+    component: Topic
   }
 })
 

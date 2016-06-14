@@ -25,10 +25,10 @@ export default {
   },
   methods: {
     goHome () {
-      this.$router.go('home')
+      this.$router.go('/home')
     },
     goNodes () {
-      this.$router.go('nodes')
+      this.$router.go('/nodes')
     },
     goAccount () {
 
