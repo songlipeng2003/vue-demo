@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Home from './components/Home'
 import Nodes from './components/Nodes'
+import Node from './components/Node'
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
@@ -17,11 +18,15 @@ var router = new VueRouter({
 })
 
 router.map({
-  'home': {
+  '/home': {
     component: Home
   },
-  'nodes': {
+  '/nodes': {
     component: Nodes
+  },
+  '/node/:id': {
+    name: 'node',
+    component: Node
   }
 })
 

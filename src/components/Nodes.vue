@@ -1,7 +1,7 @@
 <template>
   <div class="nodes clearfix">
     <div class="item" v-for="node in nodes">
-      <a href="" title="">{{node.name}}</a>
+      <a v-link="{name: 'node', params: {id: node.id}}" title="">{{node.name}}</a>
     </div>
   </div>
 </template>
