@@ -1,13 +1,17 @@
 <template>
-  <panel :header="node.name" :list="list" :type="type"></panel>
+  <scroller lock-x scrollbar-y use-pulldown :pulldown-config="{content:'下拉刷新', downContent:'下拉刷新',upContent:'释放刷新',loadingContent:'加载中'}" @pulldown:loading="getTopics">
+    <panel :header="node.name" :list="list" :type="type"></panel>
+  </scroller>
 </template>
 
 <script>
-import {Panel} from 'vux-components'
+import {Panel, Scroller} from 'vux-components'
+import Node from '../resources/Node'
+import Topic from '../resources/Topic'
 
 export default {
   components: {
-    Panel
+    Panel, Scroller
   },
   data () {
     return {
@@ -24,12 +28,12 @@ export default {
   },
   methods: {
     getNode () {
-      this.$resource('nodes{/id}').get({id: this.$get('id')}).then((response) => {
+      Node.get({id: this.$get('id')}).then((response) => {
         this.$set('node', response.data.node)
       })
     },
     getTopics () {
-      this.$resource('topics').query({node_id: this.$get('id')}).then((response) => {
+      Topic.query({node_id: this.$get('id')}).then((response) => {
         this.$set('topics', response.data.topics)
         let list = []
         response.data.topics.forEach((e, i) => {

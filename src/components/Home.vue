@@ -4,6 +4,7 @@
 
 <script>
 import {Panel} from 'vux-components'
+import Topic from '../resources/Topic'
 
 export default {
   components: {
@@ -21,7 +22,7 @@ export default {
   },
   methods: {
     getTopics () {
-      this.$resource('topics').query({}).then((response) => {
+      Topic.query({}).then((response) => {
         this.$set('topics', response.data.topics)
         let list = []
         response.data.topics.forEach((e, i) => {

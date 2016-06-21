@@ -9,6 +9,7 @@
 
 <script>
 import {Panel} from 'vux-components'
+import Topic from '../resources/Topic'
 
 export default {
   components: {
@@ -27,7 +28,7 @@ export default {
   },
   methods: {
     getTopic () {
-      this.$resource('topics{/id}').get({id: this.$get('id')}).then((response) => {
+      Topic.get({id: this.$get('id')}).then((response) => {
         this.$set('topic', response.data.topic)
       })
     },

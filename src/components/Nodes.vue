@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import Node from '../resources/Node'
+
 export default {
   components: {
   },
@@ -21,7 +23,7 @@ export default {
   },
   methods: {
     getTopics () {
-      this.$resource('nodes').query({}).then((response) => {
+      Node.query({}).then((response) => {
         this.$set('nodes', response.data.nodes)
       })
     }
