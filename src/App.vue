@@ -38,4 +38,7 @@ export default {
 </script>
 
 <style>
+.weui_tabbar {
+  position: fixed;
+}
 </style>
